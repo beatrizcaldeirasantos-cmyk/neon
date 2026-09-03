@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoltDrive - Veículos Elétricos</title>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #0f172a;
+            --card-bg: #ffffff;
+            --primary: #0052ff;
+            --accent: #ff0055;
+            --font-size: 16px;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0b0f19;
+            --text-color: #f1f5f9;
+            --card-bg: #1e293b;
+            --primary: #3b82f6;
+            --accent: #ff2a70;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: var(--font-size);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Barra de Acessibilidade */
+        .accessibility-bar {
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+        }
+
+        .accessibility-bar button {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid white;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Cabeçalho */
+        header {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--accent);
+            text-transform: uppercase;
+        }
+
+        /* Seção de Modelos */
+        .catalog {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .category-title {
+            border-left: 5px solid var(--primary);
+            padding-left: 10px;
+            margin: 40px 0 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        .btn-know-more {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="accessibility-bar" aria-label="Controles de Acessibilidade">
+        <button onclick="changeFontSize(1)" aria-label="Aumentar fonte">A+</button>
+        <button onclick="changeFontSize(-1)" aria-label="Diminuir fonte">A-</button>
+        <button onclick="toggleTheme()" aria-label="Alternar modo claro e escuro">Modo Claro/Escuro</button>
+    </div>
+
+    <header>
+        <div class="logo">VoltDrive</div>
+        <nav>
+            <strong>Mobilidade do Futuro</strong>
+        </nav>
+    </header>
+
+    <main class="catalog">
+        <section>
+            <h2 class="category-title">Modelos Acessíveis</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Volt City</h3>
+                    <p>Compacto, 100% elétrico e perfeito para o dia a dia urbano.</p>
+                    <button class="btn-know-more">Ver Detalhes</button>
+                </div>
+                <div class="card">
+                    <h3>Volt Urban</h3>
+                    <p>Autonomia eficiente com o melhor custo-benefício da categoria.</p>
+                    <button class="btn-know-more">Ver Detalhes</button>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="category-title">Categoria Luxo</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Volt Executive</h3>
+                    <p>Acabamento em couro premium, condução semi-autônoma e silêncio absoluto.</p>
+                    <button class="btn-know-more">Ver Detalhes</button>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="category-title">Categoria Esportiva</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Volt GT Performance</h3>
+                    <p>De 0 a 100 km/h em 2,9 segundos. Design aerodinâmico e tração integral.</p>
+                    <button class="btn-know-more">Ver Detalhes</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+    <script>
+        let currentFontSize = 16;
+
+        function changeFontSize(delta) {
+            currentFontSize += delta * 2;
+            if (currentFontSize < 12) currentFontSize = 12;
+            if (currentFontSize > 24) currentFontSize = 24;
+            document.documentElement.style.setProperty('--font-size', currentFontSize + 'px');
+        }
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+        }
+    </script>
+</body>
+</html>

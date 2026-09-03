@@ -1,0 +1,175 @@
+:root {
+    /* Modo Claro (Paleta Vibrante) */
+    --bg-color: #f4f6f9;
+    --text-color: #1a1a1a;
+    --card-bg: #ffffff;
+    --primary-color: #00d26a; /* Verde neon vibrante */
+    --accent-color: #0066ff;  /* Azul elétrico */
+    --nav-bg: #ffffff;
+    --shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+body.dark-mode {
+    /* Modo Escuro */
+    --bg-color: #0b0f19;
+    --text-color: #f0f0f0;
+    --card-bg: #161f30;
+    --primary-color: #00ff84;
+    --accent-color: #3385ff;
+    --nav-bg: #111827;
+    --shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 16px; /* Base para o controle de acessibilidade */
+}
+
+/* Barra de Acessibilidade */
+.accessibility-bar {
+    background: #000;
+    color: #fff;
+    padding: 8px 5%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.accessibility-bar button {
+    background: #333;
+    color: #fff;
+    border: 1px solid #555;
+    padding: 4px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.accessibility-bar button:hover {
+    background: var(--primary-color);
+    color: #000;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: var(--nav-bg);
+    box-shadow: var(--shadow);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    letter-spacing: 2px;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+/* Hero Section */
+.hero {
+    padding: 4rem 5%;
+    text-align: center;
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    color: white;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.btn-primary {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 12px 28px;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+/* Catalogo de Carros */
+.catalog {
+    padding: 3rem 5%;
+    text-align: center;
+}
+
+.filter-buttons {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 18px;
+    border: 2px solid var(--accent-color);
+    background: transparent;
+    color: var(--text-color);
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: var(--accent-color);
+    color: #fff;
+}
+
+.car-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.car-card {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-align: left;
+    position: relative;
+    border-top: 4px solid var(--primary-color);
+}
+
+.car-tag {
+    display: inline-block;
+    background: var(--accent-color);
+    color: white;
+    padding: 2px 8px;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.price {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
